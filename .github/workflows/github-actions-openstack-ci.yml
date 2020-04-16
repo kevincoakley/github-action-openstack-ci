@@ -4,6 +4,14 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      OS_AUTH_TYPE: v3applicationcredential
+      OS_AUTH_URL: ${{ secrets.OS_AUTH_URL }}
+      OS_IDENTITY_API_VERSION: 3
+      OS_REGION_NAME: SDSC
+      OS_INTERFACE: public
+      OS_APPLICATION_CREDENTIAL_ID: ${{ secrets.OS_APPLICATION_CREDENTIAL_ID }}
+      OS_APPLICATION_CREDENTIAL_SECRET: ${{ secrets.OS_APPLICATION_CREDENTIAL_SECRET }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v1
@@ -15,9 +23,5 @@ jobs:
         run:  pip install python-openstackclient python-heatclient
       - name: List files
         run: ls -al
-      - name: Ansible version
-        run: ansible --version
-      - name: OpenStack version
-        run: openstack --version
-      - name: OpenStack help
-        run: openstack --help
+      - name: List stacks
+        run: openstack stack list
