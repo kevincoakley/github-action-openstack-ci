@@ -7,5 +7,15 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v1
+      - name: Install dependencies
+        run:  |
+          sudo apt-get update
+          sudo apt-get install python3-openstackclient -y
       - name: List files
         run: ls -al
+      - name: Ansible version
+        run: ansible --version
+      - name: OpenStack version
+        run: openstack --version
+      - name: OpenStack help
+        run: openstack --help
