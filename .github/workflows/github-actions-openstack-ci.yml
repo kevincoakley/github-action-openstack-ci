@@ -1,0 +1,11 @@
+---
+name: GitHub Actions OpenStack CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v1
+      - name: List files
+        run: ls -al
