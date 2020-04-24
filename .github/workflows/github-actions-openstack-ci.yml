@@ -20,8 +20,6 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependencies
-        run:  pip install python-openstackclient python-heatclient
-      - name: List files
-        run: ls -al
-      - name: List stacks
-        run: openstack stack list
+        run:  pip install python-openstackclient python-heatclient ansible==2.9.7 --force-reinstall
+      - name: Ansible Version
+        run: ansible --version
