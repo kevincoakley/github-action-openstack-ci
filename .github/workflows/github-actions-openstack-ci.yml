@@ -20,6 +20,8 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependencies
-        run:  pip install python-openstackclient python-heatclient ansible==2.9.7 --force-reinstall
+        run:  pip install ansible==2.9.7 molecule molecule-openstack --force-reinstall
       - name: Ansible Version
         run: ansible --version
+      - name: List pip packages
+        run: pip list
