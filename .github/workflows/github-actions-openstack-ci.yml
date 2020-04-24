@@ -21,7 +21,8 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run:  pip install ansible==2.9.7 molecule molecule-openstack --force-reinstall
-      - name: Ansible Version
-        run: ansible --version
-      - name: List pip packages
-        run: pip list
+      - name: Create ansible directory
+        run: |
+          mkdir /home/runner/ansible/
+          touch /home/runner/ansible/ansible.log
+          ls -al /home/runner/ansible/
