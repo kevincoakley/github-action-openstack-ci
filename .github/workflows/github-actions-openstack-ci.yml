@@ -2,7 +2,7 @@
 name: GitHub Actions OpenStack CI
 on: [push]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     env:
       OS_AUTH_TYPE: v3applicationcredential
